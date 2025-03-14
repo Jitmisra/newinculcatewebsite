@@ -1,0 +1,1155 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Mono Sans', sans-serif; /* Ensure the font is applied */
+    scroll-behavior: smooth; /* Enable smooth scrolling for the entire page */
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+  }
+  
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  @keyframes rotateSlowly {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* New Modern Animations */
+  @keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes morphGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(-1deg); }
+    75% { transform: translateX(5px) rotate(1deg); }
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+  }
+  
+  .home-container {
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease-out;
+    perspective: 1000px;
+    overflow-x: hidden;
+  }
+  
+  .intro-section {
+    background: linear-gradient(180deg, rgba(255, 190, 167, 0.50) 0%, rgba(255, 236, 229, 0.50) 100%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.5s ease;
+    background-size: 200% 200%;
+    animation: morphGradient 15s ease infinite;
+    /* padding-top removed to avoid extra space at header top */
+  }
+  
+  .main-title {
+    color: #25252D;
+    text-align: center;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 400%; /* 64px converted to % */
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 10px 0;
+    margin-top: 40px; /* Remove extra top margin */
+    animation: slideUp 0.8s ease-out forwards 0.3s; /* Add 'forwards' so the final state persists and add delay */
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .main-title:hover {
+    color: #FF6A34;
+    transform: scale(1.02) translateZ(20px);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .main-title::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px;
+    bottom: -5px;
+    left: 50%;
+    background: linear-gradient(90deg, transparent, #FF6A34, transparent);
+    transform: translateX(-50%);
+    transition: width 0.5s ease;
+  }
+
+  .main-title:hover::before {
+    width: 60%;
+  }
+  
+  .subtitle {
+    color: #FF6A34;
+    text-align: center;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 200%; /* 32px converted to % */
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 5px 0;
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+    transition: transform 0.3s ease;
+  }
+  
+  .subtitle:hover {
+    transform: translateY(-3px) rotate(0.5deg);
+    text-shadow: 1px 1px 3px rgba(255, 106, 52, 0.3);
+  }
+  
+  .image-container {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    animation: scaleIn 1s ease-out 0.4s backwards;
+  }
+  
+  .mandala-image {
+    width: 100%;
+    position: absolute;
+    animation: rotateSlowly 60s linear infinite;
+    transition: opacity 0.3s ease;
+    filter: drop-shadow(0px 0px 10px rgba(255, 106, 52, 0.2));
+  }
+
+  .mandala-image:hover {
+    filter: drop-shadow(0px 0px 15px rgba(255, 106, 52, 0.4));
+  }
+  
+  .app-pic {
+    width: 50%;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.15));
+  }
+  
+  .app-pic:hover {
+    transform: scale(1.08) translateY(-10px) rotateY(5deg);
+    filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.2));
+  }
+  
+  .legacy-section {
+    background-color: rgba(255, 242, 238); /* Set background color without gradient */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10% 15%;
+    align-content: center;
+    box-sizing: border-box;
+    position: relative; /* Add this to position the mandala relative to this section */
+    overflow: hidden;
+    transition: background-color 0.5s ease;
+    z-index: 1;
+  }
+
+  /* Parallax background effect */
+  .legacy-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 217, 203, 0.4) 0%, rgba(255, 242, 238, 0.1) 70%);
+    z-index: -1;
+    opacity: 0.7;
+    transform: translateZ(-10px);
+    pointer-events: none;
+    transition: all 0.8s ease;
+  }
+
+  .legacy-section:hover::before {
+    opacity: 1;
+    transform: translateZ(-5px);
+  }
+  
+  .legacy-section:hover .left-mandala {
+    opacity: 0.9;
+    transform: translateY(-50%) rotate(10deg);
+    filter: hue-rotate(15deg);
+  }
+  
+  .left-mandala {
+    position: absolute;
+    left: -20%; /* Changed from -20% to -10% to make more of it visible */
+    top: 10%;
+    transform: translateY(-50%); /* Centers the image vertically */
+    height: 70%;
+    opacity: 0.8; /* Increased from 0.6 to 0.8 for better visibility */
+    z-index: 0; /* Ensure it stays in the background */
+    animation: rotateSlowly 80s linear infinite reverse;
+    transition: opacity 0.5s ease, transform 1.2s ease, filter 2s ease;
+    filter: hue-rotate(0deg);
+  }
+  
+  .legacy-text {
+    max-width: 50%;
+    position: relative; /* Ensures text stays above the mandala */
+    z-index: 1;
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .legacy-title {
+    color: #FF6A34;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 600%; /* 128px converted to % */
+    font-style: normal;
+    font-weight: 700;
+    line-height: 126.23%;
+    margin: 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+    background: linear-gradient(90deg, #FF6A34, #FF9C78);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-position 1s ease;
+  }
+  
+  .legacy-title:hover {
+    transform: translateX(5px) scale(1.03);
+    background-position: right center;
+  }
+  
+  .legacy-subtitle {
+    color: #25252D;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 300%; /* 64px converted to % */
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    margin: 0;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+  }
+  
+  .legacy-subtitle:hover {
+    transform: translateX(10px) scale(1.02);
+    color: #FF6A34;
+  }
+  
+  .legacy-description {
+    color: #25252D;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 150%; /* 32px converted to % */
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    width: 100%;
+    height: 211px;
+    flex-shrink: 0;
+    margin-top: 40px;
+    transition: opacity 0.3s ease;
+    position: relative;
+    z-index: 2;
+  }
+
+  .legacy-description::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #FF6A34, transparent);
+    transition: width 0.5s ease;
+  }
+
+  .legacy-description:hover::after {
+    width: 100px;
+  }
+  
+  .legacy-image-container {
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: scaleIn 1s ease-out 0.2s backwards;
+  }
+  
+  .india-map {
+    height: 50vh;
+    max-width: 100%;
+    object-fit: contain;
+    animation: float 8s ease-in-out infinite;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.8s ease;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.15));
+  }
+
+  .india-map:hover {
+    transform: scale(1.05) translateY(-15px) rotateY(10deg);
+    filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.2)) saturate(1.1);
+  }
+  
+  /* Team Section Styles */
+  .team-section {
+    width: 100%;
+    padding: 5% 10%;
+    background-color: #FFF2EE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Add subtle animated pattern to background */
+  .team-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255, 106, 52, 0.05) 1%, transparent 5%),
+      radial-gradient(circle at 75% 75%, rgba(255, 106, 52, 0.05) 1%, transparent 5%);
+    background-size: 100px 100px;
+    opacity: 0.8;
+    z-index: 0;
+    pointer-events: none;
+    animation: morphGradient 15s linear infinite;
+  }
+  
+  .team-title {
+    color: #25252D;
+    text-align: center;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 300%; /* 48px converted to % */
+    font-weight: 700;
+    margin-bottom: 50px;
+    animation: slideUp 0.8s ease-out;
+    position: relative;
+    transition: transform 0.3s ease;
+    z-index: 1;
+  }
+  
+  .team-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #FF6A34;
+    transition: width 0.5s ease;
+    background: linear-gradient(90deg, transparent, #FF6A34, transparent);
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .team-title:hover:after {
+    width: 100px;
+  }
+  
+  .team-title:hover {
+    transform: scale(1.03);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team-members-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  
+  .team-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 40px; /* Spacing between wrapped items */
+    animation: fadeIn 1s ease-out 0.3s backwards;
+  }
+  
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px; /* Add some margin for when items wrap */
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.6s ease, 
+                background-color 0.6s ease;
+    animation: scaleIn 0.8s ease-out;
+    padding: 15px;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-15px) perspective(1000px) rotateX(5deg);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes the image container circular */
+    background-color: #FF845B; /* White placeholder */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.6s ease, 
+                border-color 0.6s ease;
+    overflow: hidden;
+    display: flex;           /* Added to center the image */
+    justify-content: center; /* Added to center the image */
+    align-items: center;     /* Added to center the image */
+    position: relative;      /* Added to position the LinkedIn icon overlay */
+    border: 3px solid transparent;
+  }
+
+  .member-image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .member-image:hover::before {
+    opacity: 0.4;
+  }
+  
+  /* LinkedIn icon overlay */
+  .linkedin-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 106, 52, 0.85); /* Changed from LinkedIn blue to Inculcate orange */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    color: white;
+    font-size: 40px;
+    box-shadow: 0 0 15px rgba(255, 106, 52, 0.5); /* Added glow effect */
+  }
+  
+  .member-image:hover .linkedin-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Modified pulse animation with a more subtle effect */
+  @keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 106, 52, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 106, 52, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 106, 52, 0); }
+  }
+
+  @keyframes pulseModern {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 106, 52, 0.7); }
+    50% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(255, 106, 52, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 106, 52, 0); }
+  }
+  
+  .linkedin-icon:hover {
+    animation: pulseModern 1.5s infinite;
+  }
+
+  .linkedin-icon svg {
+    transition: transform 0.3s ease;
+  }
+
+  .linkedin-icon:hover svg {
+    transform: scale(1.1); /* Removed rotate(5deg) to keep the icon straight */
+  }
+  
+  .team-member:hover .member-image {
+    transform: scale(1.05) translateZ(30px);
+    box-shadow: 0 15px 25px rgba(255, 106, 52, 0.3);
+    border-color: #FF6A34;
+  }
+  
+  .member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* Ensures images cover the container nicely */
+    border-radius: 50%;      /* Ensures the image itself is circular */
+  }
+
+  .member-name {
+    color: #25252D;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 120%; /* 19.2px converted to % */
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+    transition: transform 0.4s ease, color 0.4s ease;
+    position: relative;
+  }
+
+  .member-name::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #FF6A34;
+    transform: translateX(-50%);
+    transition: width 0.4s ease;
+  }
+
+  .team-member:hover .member-name {
+    transform: translateY(-3px);
+    color: #FF6A34;
+  }
+
+  .team-member:hover .member-name::after {
+    width: 50%;
+  }
+
+  .member-title {
+    color: #666;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 100%; /* 16px converted to % */
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+  }
+
+  .member-bio {
+    color: #25252D;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 90%; /* ~14.4px converted to % */
+    line-height: 1.5;
+    text-align: center;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  /* Responsive team section for smaller screens */
+  @media (max-width: 1200px) {
+    .team-row {
+      justify-content: center;
+    }
+    
+    .team-member {
+      flex-basis: calc(33% - 40px); /* 3 members per row on medium screens */
+      min-width: 150px;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .team-title {
+      font-size: 250%; /* Smaller title on mobile */
+      margin-bottom: 30px;
+    }
+    
+    .team-members-container {
+      gap: 30px; /* Less gap between rows on mobile */
+    }
+    
+    .team-member {
+      flex-basis: calc(50% - 40px); /* 2 members per row on smaller screens */
+    }
+    
+    .member-image {
+      width: 130px;
+      height: 130px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .team-section {
+      padding: 40px 5%;
+    }
+    
+    .team-row {
+      flex-direction: column; /* Stack vertically on very small screens */
+      align-items: center;
+      gap: 25px;
+    }
+    
+    .team-member {
+      width: 100%;
+      max-width: 200px;
+    }
+    
+    .member-name {
+      font-size: 110%;
+    }
+  }
+
+  /* New breakpoint for smaller mobile devices */
+  @media (max-width: 480px) {
+    .team-section {
+      padding: 30px 5%;
+    }
+    
+    .team-title {
+      font-size: 200%; /* Even smaller title for very small screens */
+      margin-bottom: 20px;
+    }
+    
+    .team-members-container {
+      gap: 20px;
+    }
+    
+    .team-row {
+      flex-direction: row; /* Change back to row layout */
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 15px;
+    }
+    
+    .team-member {
+      width: calc(50% - 15px); /* 2 per row, accounting for gap */
+      max-width: none;         /* Remove fixed max-width to enforce 2 per row */
+      margin-bottom: 15px;
+      gap: 8px;
+    }
+    
+    .member-image {
+      width: 100px;
+      height: 100px;
+      border-width: 1px; /* Thinner border */
+    }
+    
+    .member-name {
+      font-size: 100%;
+    }
+    
+    .member-title {
+      font-size: 85%;
+    }
+    
+    .member-bio {
+      font-size: 80%;
+      max-width: 100%;
+    }
+  }
+  
+  /* Contact Section Styles */
+  .contact-section {
+    width: 100%;
+    padding: 80px 10%;
+    background: rgba(255, 242, 238);
+    box-sizing: border-box;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255, 106, 52, 0.05) 1%, transparent 5%),
+      radial-gradient(circle at 75% 75%, rgba(255, 106, 52, 0.05) 1%, transparent 5%);
+    background-size: 100px 100px;
+    opacity: 0.8;
+    z-index: 0;
+    pointer-events: none;
+    animation: morphGradient 15s linear infinite;
+  }
+  
+  .contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .contact-left {
+    width: 50%;
+    padding-right: 50px;
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .contact-title {
+    color: #25252D;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 300%; /* 48px converted to % */
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-position 0.8s ease;
+    background: linear-gradient(90deg, #25252D, #555);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+  }
+  
+  .contact-title:hover {
+    transform: translateX(10px) scale(1.03);
+    background-position: right center;
+  }
+  
+  .contact-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #FF6A34;
+    transition: width 0.5s ease;
+    background: linear-gradient(90deg, #FF6A34, transparent);
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .contact-title:hover::after {
+    width: 120px;
+  }
+  
+  .contact-text {
+    color: #25252D;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 130%; /* ~21px */
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease-out 0.3s backwards;
+  }
+  
+  .contact-email {
+    display: flex;
+    align-items: center;
+    color: #FF6A34;
+    font-family: 'Mono Sans', sans-serif;
+    font-size: 150%; /* 24px */
+    font-weight: 600;
+    text-decoration: none;
+    padding: 15px 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(255, 106, 52, 0.15);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: fit-content;
+    animation: scaleIn 0.8s ease-out 0.5s backwards;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .contact-email::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #FF6A34, #FF9C78);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .contact-email:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 106, 52, 0.3);
+    color: white;
+  }
+
+  .contact-email:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .email-icon {
+    margin-right: 12px;
+    font-size: 130%;
+  }
+  
+  .contact-right {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+  }
+  
+  .contact-decoration {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .contact-circle {
+    border-radius: 50%;
+    position: absolute;
+    border: 3px solid #FF6A34;
+    animation: float 8s infinite ease-in-out;
+    transition: transform 0.8s ease, opacity 0.8s ease, border-color 0.8s ease;
+  }
+  
+  .contact-circle:nth-child(1) {
+    width: 280px;
+    height: 280px;
+    opacity: 0.1;
+    top: 10px;
+    left: 10px;
+    animation-delay: 0s;
+  }
+  
+  .contact-circle:nth-child(2) {
+    width: 220px;
+    height: 220px;
+    opacity: 0.2;
+    top: 40px;
+    left: 40px;
+    animation-delay: 0.5s;
+  }
+  
+  .contact-circle:nth-child(3) {
+    width: 160px;
+    height: 160px;
+    opacity: 0.3;
+    top: 70px;
+    left: 70px;
+    animation-delay: 1s;
+  }
+
+  .contact-section:hover .contact-circle:nth-child(1) {
+    opacity: 0.15;
+    transform: translateZ(-20px) rotate(5deg);
+    border-color: #FF8D5C;
+  }
+
+  .contact-section:hover .contact-circle:nth-child(2) {
+    opacity: 0.25;
+    transform: translateZ(10px) rotate(-5deg);
+    border-color: #FF7A43;
+  }
+
+  .contact-section:hover .contact-circle:nth-child(3) {
+    opacity: 0.35;
+    transform: translateZ(30px) rotate(10deg);
+    border-color: #FF6A34;
+  }
+  
+  /* Footer Section Styles */
+  .footer-section {
+    width: 100%;
+    background-color: rgba(255, 242, 238);
+    padding: 30px 0;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    background: linear-gradient(180deg, rgba(255, 242, 238, 1) 0%, rgba(255, 236, 229, 0.8) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .footer-text {
+    color: #000;
+    font-family: "Mona Sans", sans-serif;
+    font-size: 146%; /* Converted from 23.333px to percentage (based on 16px browser default) */
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+    animation: fadeIn 1s ease-out;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-text:hover {
+    transform: scale(1.05) translateY(-3px);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Make sure the heart and flag emoji are not affected by font weight */
+  .footer-text span {
+    display: inline-block;
+    margin: 0 3px;
+  }
+
+  /* Make the heart beat on hover */
+  .footer-text:hover .heart {
+    display: inline-block;
+    animation: breathe 1s infinite;
+    transform-origin: center;
+  }
+
+  /* Make the flag wave on hover */
+  .footer-text:hover .flag {
+    display: inline-block;
+    animation: wave 2s infinite;
+    transform-origin: bottom;
+  }
+  
+  /* Adding responsive adjustments for footer text */
+  @media (max-width: 768px) {
+    .footer-text {
+      font-size: 125%; /* Slightly reduced for mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-text {
+      font-size: 100%; /* Further reduced for very small screens */
+      padding: 0 10px; /* Add padding to prevent text from touching the edges */
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .contact-content {
+      flex-direction: column;
+    }
+    
+    .contact-left,
+    .contact-right {
+      width: 100%;
+      padding-right: 0;
+    }
+    
+    .contact-right {
+      margin-top: 50px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main-title {
+      font-size: 300%; /* Updated from 250% to 300% for mobile */
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    .subtitle {
+      font-size: 150%; /* Reduced from 200% for mobile */
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    .image-container {
+      width: 80%; /* Increase container width on mobile */
+    }
+    
+    .app-pic {
+      width: 60%; /* Make app pic larger on mobile */
+    }
+    
+    .legacy-title {
+      font-size: 350%; /* Reduced from 600% for mobile */
+    }
+    
+    .legacy-subtitle {
+      font-size: 200%; /* Reduced from 300% for mobile */
+    }
+    
+    .legacy-description {
+      font-size: 120%; /* Reduced from 150% for mobile */
+      height: auto; /* Allow it to expand as needed */
+    }
+
+    .india-map {
+      height: 50vh;
+    }
+    
+    .legacy-section {
+      flex-direction: column;
+      padding: 10% 5%;
+      position: relative; /* Ensure position is relative for absolute positioning */
+      overflow: visible; /* Change from hidden to visible to show mandala */
+    }
+    
+    .legacy-text, .legacy-image-container {
+      max-width: 100%;
+      margin-bottom: 30px;
+    }
+    
+    .left-mandala {
+      left: -5%; /* Move it less to the left on mobile */
+      height: 40%; /* Slightly smaller on mobile */
+      opacity: 0.7; /* Adjust opacity for mobile */
+      top: 20%; /* Position it toward the top on mobile */
+    }
+
+    .contact-email {
+      font-size: 130%; /* Slightly smaller font */
+      padding: 12px 20px; /* Reduced padding */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main-title {
+      font-size: 300%; /* Changed to 300% as requested */
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    .subtitle {
+      font-size: 125%; /* Further reduced for very small screens */
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    .image-container {
+      width: 90%; /* Even larger container width on very small devices */
+    }
+    
+    .app-pic {
+      width: 70%; /* Make app pic even larger on very small devices */
+    }
+    
+    .member-name {
+      font-size: 110%; /* Slightly smaller on mobile */
+    }
+    
+    .member-title, .member-bio {
+      font-size: 90%; /* Slightly smaller on mobile */
+    }
+
+    .india-map {
+      height: 50vh;
+    }
+    
+    .contact-email {
+      font-size: 110%; /* Smaller font for very small screens */
+      padding: 10px 15px; /* Much smaller padding */
+      width: 100%; /* Full width on very small screens */
+      box-sizing: border-box;
+      justify-content: center;
+    }
+    
+    .contact-title {
+      font-size: 200%; /* Smaller title on very small screens */
+    }
+    
+    .contact-text {
+      font-size: 100%; /* Smaller description text */
+    }
+    
+    .email-icon {
+      margin-right: 8px; /* Smaller margin between icon and text */
+    }
+
+    .left-mandala {
+      left: 0; /* Don't move it off-screen on very small devices */
+      height: 30%; /* Even smaller on very small screens */
+      top: 10%; /* Position higher on very small screens */
+    }
+  }
+
+  /* Intersection Observer animation classes - to be added with JavaScript */
+  .hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Improved Intersection Observer animation classes */
+  .hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+
+  /* Staggered reveal for team members */
+  .team-row .team-member:nth-child(1) { transition-delay: 0.1s; }
+  .team-row .team-member:nth-child(2) { transition-delay: 0.2s; }
+  .team-row .team-member:nth-child(3) { transition-delay: 0.3s; }
+  .team-row .team-member:nth-child(4) { transition-delay: 0.4s; }
+  .team-row .team-member:nth-child(5) { transition-delay: 0.5s; }
+
+  /* Modern scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 242, 238, 0.8);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #FF6A34, #FF9C78);
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #FF5A1F, #FF8D5C);
+  }
