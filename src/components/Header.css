@@ -237,16 +237,37 @@
   .header {
     width: 90%;
     padding: 0 15px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    position: relative;
+    justify-content: center;
   }
   
-  /* Show hamburger menu on mobile */
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 15px;
+  }
+  
+  
+  .logo:hover {
+    transform: translateX(-50%) scale(1.05) rotateY(10deg);
+  }
+  
+  
   .menu-toggle {
     display: flex;
   }
   
-  /* Hide regular nav menu on mobile - add a class in your JS to toggle this */
+  
   .nav {
     position: absolute;
     top: 70px;
@@ -303,11 +324,13 @@
     width: 90%;
     height: 40px;
     padding: 0 10px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /* Keep the justification center from the previous media query */
   }
   
   .logo {
     font-size: 18px;
+    /* The absolute positioning from the previous media query is inherited */
   }
 }
