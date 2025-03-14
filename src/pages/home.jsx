@@ -49,7 +49,7 @@ const Home = () => {
           <h1 className="legacy-title">6000+</h1>
           <h2 className="legacy-subtitle">Years of Legacy</h2>
           <p className="legacy-description">
-            Discover the rich heritage and culture of Bharat that spans over 6000 years. From ancient civilizations to modern advancements, explore the journey of a nation that has always been at the forefront of knowledge and innovation.
+            Discover the rich heritage and culture of Bharat that spans over 6000 years.From ancient civilizations to modern advancements, explore the journey of a nation that has always been at the forefront of knowledge and innovation.
           </p>
         </div>
         <div className="legacy-image-container">
