@@ -5,7 +5,6 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll effect for header
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -17,7 +16,6 @@ const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     
-    // Initialize intersection observer to animate elements on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -26,7 +24,6 @@ const Header = () => {
       });
     }, { threshold: 0.1 });
     
-    // Select all elements that should be animated when they come into view
     const hiddenElements = document.querySelectorAll('.team-member, .team-title, .legacy-text, .legacy-image-container, .contact-left, .contact-right');
     hiddenElements.forEach(el => {
       el.classList.add('hidden');
@@ -35,7 +32,6 @@ const Header = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      // Clean up observer
       hiddenElements.forEach(el => {
         observer.unobserve(el);
       });
@@ -50,14 +46,12 @@ const Header = () => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
-      setMenuOpen(false); // Close the menu after clicking a link
+      setMenuOpen(false);
     }
   };
 
   const handleJoinClick = () => {
     scrollToSection('contactus');
-    // Or use the email option
-    // window.location.href = 'mailto:In@inculcate.in?subject=Join%20as%20Bug%20Tester&body=I%20would%20like%20to%20join%20as%20a%20bug%20tester%20for%20Inculcate.';
   };
 
   return (
@@ -67,7 +61,6 @@ const Header = () => {
         <span className="logo-culcate">culcate</span>
       </div>
       
-      {/* Hamburger menu toggle button with animation class */}
       <div className={`menu-toggle ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
         <span className="bar"></span>
         <span className="bar"></span>
